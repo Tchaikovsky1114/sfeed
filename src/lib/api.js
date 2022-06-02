@@ -6,11 +6,6 @@
 // 과거 특정 기간의 뉴스에 집중from=2020-05-16&to=2020-05-30
 // 또는 공란으로 남겨두면 최신 뉴스를 받아볼 수 있습니다.
 // 14개 언어 중 하나로 검색 제한: language=en,language=jp
-//example : https://newsapi.org/v2/everything?q=apple&from=2022-05-31&to=2022-05-31&sortBy=popularity&apiKey=5994945209a145fd87580605965704ee
-//example2 : https://newsapi.org/v2/everything?q=tesla&from=2022-05-01&sortBy=publishedAt&apiKey=5994945209a145fd87580605965704ee
-//example3 : https://newsapi.org/v2/top-headlines?country=kr&category=business&apiKey=5994945209a145fd87580605965704ee
-//example4 : https://newsapi.org/v2/everything?q=MZ%EC%84%B8%EB%8C%80&from=2022-05-01&apiKey=5994945209a145fd87580605965704ee
-//example5 : https://newsapi.org/v2/everything?q=%EB%A3%A8%EB%82%98&from=2022-05-01&sortBy=publishedAt&apiKey=5994945209a145fd87580605965704ee
 // ?q= 해당 키워드 검색 정확한 일치가 필요하다면 q=""로 검색하게 한다.
 // from=date&to=date : 특정 기간 뉴스 검색
 // sortBy= 인기순 정렬 relevancy: 밀접하게 관련있는 기사가 먼저 온다.(관련순) popularity: 인기 있는 출처 및 게시자의 기사가 먼저 표시된다.(인기순) publishedAt 최신 기사가 먼저 표시된다(최신순)
@@ -24,6 +19,11 @@
 // top-headlines - 국가,카테고리 및 단일 게시자에 대한 속보 헤드라인. 실시간 최신 뉴스 헤드라인을 사용하는 곳에 적합하다.
 // Response object
 // status, totalResults, articles, source, author, title, description, url, urlTolmage, publishedAt, content
+//example : https://newsapi.org/v2/everything?q=apple&from=2022-05-31&to=2022-05-31&sortBy=popularity&apiKey=5994945209a145fd87580605965704ee
+//example2 : https://newsapi.org/v2/everything?q=tesla&from=2022-05-01&sortBy=publishedAt&apiKey=5994945209a145fd87580605965704ee
+//example3 : https://newsapi.org/v2/top-headlines?country=kr&category=business&apiKey=5994945209a145fd87580605965704ee
+//example4 : https://newsapi.org/v2/everything?q=MZ%EC%84%B8%EB%8C%80&from=2022-05-01&apiKey=5994945209a145fd87580605965704ee
+//example5 : https://newsapi.org/v2/everything?q=%EB%A3%A8%EB%82%98&from=2022-05-01&sortBy=publishedAt&apiKey=5994945209a145fd87580605965704ee
 
 import axios from "axios"
 
@@ -32,8 +32,8 @@ const SEARCHNEWS_API = 'https://newsapi.org/v2/everything'
 const HEADLINE_API = 'https://newsapi.org/v2/top-headlines'
 const API_KEY = '5994945209a145fd87580605965704ee'
 
-export const getHeadlineNews = async () => {
-  const response = await axios(`${HEADLINE_API}?country=kr&page=1&pageSize=5&apiKey=${API_KEY}`,{
+export const getHeadlineNews = async (category = 'technology') => {
+  const response = await axios(`${HEADLINE_API}?country=kr&category=${category}&page=1&pageSize=10&apiKey=${API_KEY}`,{
     method:'GET',
     'content-type': 'application/json'
   });

@@ -2,6 +2,7 @@ import React from 'react';
 import LightAndNightToggleButton from '../assets/LightAndNightToggleButton';
 import {NavLink,Link} from 'react-router-dom'
 const Header = () => {
+  const navLinkCategory = ['business','entertainment','general','health','science','sports','technology']
   return (
     
       
@@ -9,13 +10,15 @@ const Header = () => {
     <LightAndNightToggleButton />
       <nav class="flex gap-4 px-12">
       {/* business, entertainment, general health, science, sports, technology */}
-        <NavLink to='/business'>비지니스</NavLink>
-        <NavLink to='/entertainment'>연예</NavLink>
-        <NavLink to='/general'>일반</NavLink>
-        <NavLink to='/health'>건강</NavLink>
-        <NavLink to='/science'>과학</NavLink>
-        <NavLink to='/sports'>스포츠</NavLink>
-        <NavLink to='/technology'>기술/IT</NavLink>
+        {navLinkCategory.map((item) =><NavLink style={({isActive}) =>{
+          return {
+            display:'block',
+            paddingBottom: '.2rem',
+            borderBottom: isActive ? '2px solid royalblue' : '2px solid white' ,
+            color: isActive ? 'royalblue' : ''
+          }
+        }} to={`/${item}`}>{item.charAt(0).toUpperCase() + item.slice(1)}</NavLink>)}
+        
       </nav>
 
       <div className='flex flex-col items-center justify-center'>
@@ -23,7 +26,7 @@ const Header = () => {
           <Link to="/" class="text-xl">SFEED</Link>
         </div>
         <div class="bg-primary text-secondary text-xs">
-          <h2>Speed feeds for you</h2>
+          <h2>대화를 위한 상식, SFEED</h2>
         </div>
       </div>
     </div>

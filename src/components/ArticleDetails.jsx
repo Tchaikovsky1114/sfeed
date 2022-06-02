@@ -1,11 +1,9 @@
 import React from 'react';
+import ArticleDetailsView from './ArticleDetailsView';
 
 const ArticleDetails = ({article}) => {
-  return (
-    <div>
-      {article.title}
-    </div>
-  );
+  
+  return <ArticleDetailsView article={article} />
 };
 
 export default ArticleDetails;
