@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
-import HeadlineProvider, { HeadlineContext } from '../store/HeadlineContext';
-import HeadlineNewsItem from './HeadlineNewsItem';
-import uuid from 'react-uuid';
+import { HeadlineContext } from '../store/HeadlineContext';
+
+
 import HeadlineNewsView from './HeadlineNewsView';
 
 const HeadlineNews = () => {

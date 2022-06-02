@@ -6,10 +6,6 @@
 // 과거 특정 기간의 뉴스에 집중from=2020-05-16&to=2020-05-30
 // 또는 공란으로 남겨두면 최신 뉴스를 받아볼 수 있습니다.
 // 14개 언어 중 하나로 검색 제한: language=en,language=jp
-
-import axios from "axios"
-import { useCallback } from "react"
-
 //example : https://newsapi.org/v2/everything?q=apple&from=2022-05-31&to=2022-05-31&sortBy=popularity&apiKey=5994945209a145fd87580605965704ee
 //example2 : https://newsapi.org/v2/everything?q=tesla&from=2022-05-01&sortBy=publishedAt&apiKey=5994945209a145fd87580605965704ee
 //example3 : https://newsapi.org/v2/top-headlines?country=kr&category=business&apiKey=5994945209a145fd87580605965704ee
@@ -26,10 +22,11 @@ import { useCallback } from "react"
 // sources= 매체별 
 // endpoint - everything: 4년간 출판된 모든 기사 검색. 뉴스 분석 및 기사 검색에 알맞는 endpoint
 // top-headlines - 국가,카테고리 및 단일 게시자에 대한 속보 헤드라인. 실시간 최신 뉴스 헤드라인을 사용하는 곳에 적합하다.
-
-
 // Response object
 // status, totalResults, articles, source, author, title, description, url, urlTolmage, publishedAt, content
+
+import axios from "axios"
+
 
 const SEARCHNEWS_API = 'https://newsapi.org/v2/everything'
 const HEADLINE_API = 'https://newsapi.org/v2/top-headlines'

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import HeadlineNewsItem from './HeadlineNewsItem';
 import uuid from 'react-uuid';
 const HeadlineNewsView = ({articles}) => {

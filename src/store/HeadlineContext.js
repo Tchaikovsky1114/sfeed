@@ -1,11 +1,9 @@
 import React from 'react';
 import { useEffect } from 'react';
-import { useCallback } from 'react';
-import { useState } from 'react';
 import { createContext } from 'react';
 import useHttp from '../hooks/useHttp'
 import {getHeadlineNews} from '../lib/api'
-import axios from "axios"
+
 
 export const HeadlineContext = createContext({
   headlineNews: [],
