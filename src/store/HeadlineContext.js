@@ -9,7 +9,8 @@ export const HeadlineContext = createContext({
   headlineNews: [],
   status : {},
   error : '',
-  getNews: () => {}
+  getNews: (dynamicSegment) => {},
+  sendRequest: (category)=>{}
 })
 
 const HeadlineProvider = ({children}) => { 
@@ -21,8 +22,10 @@ const HeadlineProvider = ({children}) => {
     await sendRequest()
   }())
   },[sendRequest])
+
+  
   if(status === 'pending'){
-    return <div class="text-xl">Now Loading.........</div>
+    return <div class="text-xl absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">Now Loading.........</div>
   }
   if(headlineNews === null){
     return <div>something wrong!</div>
@@ -36,7 +39,8 @@ const HeadlineProvider = ({children}) => {
     headlineNews,
     status,
     error,
-    getNews
+    getNews,
+    sendRequest
   }
 
   return <HeadlineContext.Provider value={headlineContext}>{children}</HeadlineContext.Provider>
