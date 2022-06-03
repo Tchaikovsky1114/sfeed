@@ -10,10 +10,6 @@
   src: url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
 }
 
-/* :root {
-  @layer
-} */
-
 @layer base {
   body {
     @apply bg-primary

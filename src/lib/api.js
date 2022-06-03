@@ -32,8 +32,8 @@ const SEARCHNEWS_API = 'https://newsapi.org/v2/everything'
 const HEADLINE_API = 'https://newsapi.org/v2/top-headlines'
 const API_KEY = '5994945209a145fd87580605965704ee'
 
-export const getHeadlineNews = async (category = 'technology') => {
-  const response = await axios(`${HEADLINE_API}?country=kr&category=${category}&page=1&pageSize=10&apiKey=${API_KEY}`,{
+export const getHeadlineNews = async (category = 'technology',pageNumber = 1) => {
+  const response = await axios(`${HEADLINE_API}?country=kr&category=${category}&page=${pageNumber}&pageSize=10&apiKey=${API_KEY}`,{
     method:'GET',
     'content-type': 'application/json'
   });

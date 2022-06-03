@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { HeadlineContext } from '../store/HeadlineContext';
+import { HeadlineContext } from '../../store/HeadlineContext';
 
 
 import HeadlineNewsView from './HeadlineNewsView';

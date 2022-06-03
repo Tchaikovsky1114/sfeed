@@ -1,30 +1,43 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useContext } from 'react';
 import { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import CategoriesTemplete from '../components/CategoriesTemplete';
+import { useParams, useLocation } from 'react-router-dom';
+import CategoriesTemplete from '../components/categories/CategoriesTemplete';
 import useHttp from '../hooks/useHttp';
 import { getHeadlineNews } from '../lib/api';
+import { UtilContext } from '../store/UtilContext';
 
 
 const Categories = () => {
-  const {sendRequest,status,data:categoryHeadlineNews} = useHttp(getHeadlineNews);
-  const params = useParams();
-  const {categories} = params;
+  const {currentPageNumber,getNewsOnPage} = useContext(UtilContext)
+  const {sendRequest,status,data:categoryNews} = useHttp(getHeadlineNews);
+  const {pathname} = useLocation()
+  console.log(pathname)
+  console.log(currentPageNumber);
   
-  
+  const {categories} = useParams();
+
   useEffect(()=>{
-   sendRequest(categories);
-   return () => sendRequest(categories);
-  },[sendRequest,categories])
-  
+   sendRequest(categories,currentPageNumber);
+  //  return () => sendRequest(categories,currentPageNumber);
+  },[sendRequest,categories,currentPageNumber])
+  useEffect(()=>{
+    getNewsOnPage(1)
+  },[pathname])
+
+
+
   if(status === 'pending'){
     return <div class="text-xl absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">Now Loading.........</div>
   }
-  if(categoryHeadlineNews === null ){
+
+  if(categoryNews === null ){
     return <div>something wrong!</div>
   }
+  
 
-  return <CategoriesTemplete categoryHeadlineNews={categoryHeadlineNews} />
+  
+  return <CategoriesTemplete  categories={categories} categoryNews={categoryNews} />
 };
 
 export default Categories;

@@ -1,16 +1,15 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import Banner from '../components/Banner';
-import HeadlineNews from '../components/HeadlineNews';
-import HeadlineProvider from '../store/HeadlineContext';
+import HeadlineNews from '../components/headline/HeadlineNews';
 
 
 const Main = () => {
   return (
     <div class="mt-10 w-auto flex flex-col max-w-3xl h-40 p-12">
       <Banner />
-      <HeadlineProvider>
+      <Suspense fallback={<p>Loading......</p>}>
       <HeadlineNews />
-      </HeadlineProvider>
+      </Suspense>
     </div>
   );
 };
