@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link} from 'react-router-dom';
+import HeadlineItemTemplate from '../../layouts/HeadlineItemTemplate';
 
 const CategoriesItemView = ({article,category,dynamicSegment}) => {
   return (
-    <li className='mt-2'>
+      <HeadlineItemTemplate>
       <Link className="hover:text-accent" to={`/${category}/${dynamicSegment}`} >{article.title}</Link>
-    </li>
+      </HeadlineItemTemplate>
   );
 };
 

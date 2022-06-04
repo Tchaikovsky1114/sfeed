@@ -3,10 +3,10 @@ import { useEffect } from 'react';
 import useHttp from '../hooks/useHttp';
 import { getHeadlineNews } from '../lib/api';
 import {useParams} from 'react-router-dom'
-import ArticleFrame from '../layouts/ArticleFrame';
-import CategoryTemplete from '../components/category/CategoryTemplete';
+import CategoryTemplete from '../components/category-article/CategoryTemplete';
+
 const Category = () => {
-  const {sendRequest,status,data:categoriesNews,error} = useHttp(getHeadlineNews)
+  const {sendRequest,status,data:categoriesNews} = useHttp(getHeadlineNews)
   const {categoryId,categories} = useParams()
   
   useEffect(()=>{
@@ -28,8 +28,9 @@ const Category = () => {
     return article;
   }
   const categoryNews = getNews(categoryId)
+
+
   
-  console.log(categoryNews)
   return <CategoryTemplete article={categoryNews} />
 };
 

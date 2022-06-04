@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { HeadlineContext } from '../../store/HeadlineContext';
 
 
-import HeadlineNewsView from './HeadlineNewsView';
+import HeadlineNewsView from './MainHeadlineNewsView';
 
 const HeadlineNews = () => {
   const headlineCtx = useContext(HeadlineContext)

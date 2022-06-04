@@ -1,5 +1,5 @@
 import React from 'react';
-import ArticleDetailsView from './ArticleDetailsView';
+import ArticleDetailsView from './MainArticleDetailsView';
 
 const ArticleDetails = ({article}) => {
   

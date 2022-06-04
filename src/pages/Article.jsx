@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import ArticleTemplete from '../components/articles/ArticleTemplete';
+import ArticleTemplete from '../components/main-article/MainArticle';
 import { HeadlineContext } from '../store/HeadlineContext';
 import {useParams} from 'react-router-dom';
 

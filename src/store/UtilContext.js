@@ -13,16 +13,16 @@ export const UtilContext = createContext({
 const UtilProvider = ({children}) => {
   const [currentPageNumber,setCurrentPageNumber] = useState(1)
 
-  const getNewsOnPage = (number) =>{
-    console.log(currentPageNumber);
+  const getNewsOnPage = useCallback((number) =>{
+
     setCurrentPageNumber(number);
-  }
-  const increasePageNumber = () => {
+  },[currentPageNumber])
+  const increasePageNumber = useCallback(() => {
     setCurrentPageNumber(prev => prev + 1);
-  }
-  const decreasePageNumber = () => {
+  },[currentPageNumber])
+  const decreasePageNumber = useCallback(() => {
     setCurrentPageNumber(prev => prev - 1);
-  }
+  },[currentPageNumber])
  
   const utilContext = {
     getNewsOnPage,

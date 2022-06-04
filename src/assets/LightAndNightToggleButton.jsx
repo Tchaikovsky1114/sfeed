@@ -13,12 +13,15 @@ const LightAndNightToggleButton = () => {
   return (
     <>
       <DarkModeSwitch
-        className={` absolute top-3 left-2 bg-red-400 rounded-3xl p-1 duration-300 ${
+        className={`rounded-full duration-300 ring-2 mb-2 ${
           isDark ? 'bg-slate-800' : 'bg-red-400'
-        }`}
+        }
+       
+        `}
+        
         checked={isDark}
         onChange={toggleDarkMode}
-        size={40}
+        size={32}
         moonColor="royalblue"
         sunColor="red"
       />

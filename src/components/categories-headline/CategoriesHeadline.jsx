@@ -1,5 +1,5 @@
 import React from 'react';
-import CategoriesTempleteView from './CategoriesTempleteView';
+import CategoriesTempleteView from './CategoriesHeadlineView';
 
 const CategoriesTemplete = ({categoryNews,categories}) => {
   

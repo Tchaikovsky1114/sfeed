@@ -1,5 +1,5 @@
 import React from 'react';
-import ArticleTemplete from '../components/articles/ArticleTemplete';
+import ArticleTemplete from '../components/main-article/MainArticle';
 import HeadlineProvider from '../store/HeadlineContext';
 
 

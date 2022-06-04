@@ -1,12 +1,11 @@
 import React from 'react';
-import ArticleTempleteFrame from '../../layouts/ArticleTempleteFrame';
+import ArticleTemplete from '../../layouts/ArticleTemplete';
 import CategoryDetail from './CategoryDetail';
 
 const CategoryTemplete = ({article}) => {
-  console.log(article)
-  return <ArticleTempleteFrame article={article}>
+  return <ArticleTemplete article={article}>
     <CategoryDetail article={article} />
-  </ArticleTempleteFrame>
+  </ArticleTemplete>
 };
 
 export default CategoryTemplete;

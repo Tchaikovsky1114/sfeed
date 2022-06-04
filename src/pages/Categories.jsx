@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useContext } from 'react';
 import { useEffect } from 'react';
 import { useParams, useLocation } from 'react-router-dom';
-import CategoriesTemplete from '../components/categories/CategoriesTemplete';
+import CategoriesTemplete from '../components/categories-headline/CategoriesHeadline';
 import useHttp from '../hooks/useHttp';
 import { getHeadlineNews } from '../lib/api';
 import { UtilContext } from '../store/UtilContext';
@@ -12,15 +12,12 @@ const Categories = () => {
   const {currentPageNumber,getNewsOnPage} = useContext(UtilContext)
   const {sendRequest,status,data:categoryNews} = useHttp(getHeadlineNews);
   const {pathname} = useLocation()
-  console.log(pathname)
-  console.log(currentPageNumber);
-  
   const {categories} = useParams();
 
   useEffect(()=>{
    sendRequest(categories,currentPageNumber);
-  //  return () => sendRequest(categories,currentPageNumber);
   },[sendRequest,categories,currentPageNumber])
+
   useEffect(()=>{
     getNewsOnPage(1)
   },[pathname])

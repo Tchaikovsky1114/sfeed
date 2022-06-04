@@ -11,9 +11,7 @@ import HeadlineProvider from './store/HeadlineContext';
 function App() {
   return (
     <MainLayout>
-
         <Header />
-        
       <HeadlineProvider>
       <RouteBundle />
       </HeadlineProvider>
