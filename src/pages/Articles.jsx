@@ -6,10 +6,7 @@ import HeadlineProvider from '../store/HeadlineContext';
 const Articles = () => {
   return (
     <HeadlineProvider>
-     
-
       <ArticleTemplete />
-      
     </HeadlineProvider>
       
    

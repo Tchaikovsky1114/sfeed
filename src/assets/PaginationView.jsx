@@ -3,7 +3,7 @@ import uuid from "react-uuid"
 
 const PaginationView = ({pageNumber,totalResults,getNewsOnPage,page,increasePageNumber,decreasePageNumber}) => {
   return (
-    <div className="bg-slate-500 px-4 py-3 flex items-center justify-between rounded-md sm:px-6 absolute bottom-4">
+    <div className="bg-slate-500 px-4 py-3 flex items-center justify-between rounded-md sm:px-6 absolute -bottom-12">
     <div className="flex justify-between  sm:hidden ">
       <button
         href="#"
