@@ -1,13 +1,14 @@
 import React from 'react';
 import uuid from "react-uuid"
 
-const PaginationView = ({pageNumber,totalResults,getNewsOnPage,page}) => {
+const PaginationView = ({pageNumber,totalResults,getNewsOnPage,page,increasePageNumber,decreasePageNumber}) => {
   return (
     <div className="bg-slate-500 px-4 py-3 flex items-center justify-between rounded-md sm:px-6 absolute bottom-4">
     <div className="flex justify-between  sm:hidden ">
       <button
         href="#"
         className="relative inline-flex items-center shrink px-2 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50"
+        onClick={decreasePageNumber}
         // onClick={getNewsOnPage}
       >
         Previous
@@ -15,6 +16,7 @@ const PaginationView = ({pageNumber,totalResults,getNewsOnPage,page}) => {
       <button
         href="#"
         className="ml-3 relative inline-flex items-center px-5 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50"
+        onClick={decreasePageNumber}
       >
         Next
       </button>
@@ -31,6 +33,7 @@ const PaginationView = ({pageNumber,totalResults,getNewsOnPage,page}) => {
           <button
             href="#"
             className="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
+            onClick={decreasePageNumber}
           >
             <span className="sr-only">Previous</span>
             <div className="h-5 w-5 font-bold" aria-hidden="true">←</div>
@@ -48,6 +51,7 @@ const PaginationView = ({pageNumber,totalResults,getNewsOnPage,page}) => {
           <button
             href="#"
             className="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
+            onClick={increasePageNumber}
           >
             <span className="sr-only">Next</span>
             <div className="h-5 w-5 font-bold" aria-hidden="true">→</div>

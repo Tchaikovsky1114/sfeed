@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ArticleTempleteFrame = ({article,children}) => {
+const ArticleTemplete = ({article,children}) => {
   return (
     <div class="mt-16 max-w-xl rounded-lg bg-secondary flex justify-center items-center flex-col border-2 p-8">
     <div class="text-left">SFEED NEWS</div>
@@ -10,4 +10,4 @@ const ArticleTempleteFrame = ({article,children}) => {
   );
 };
 
-export default ArticleTempleteFrame;
+export default ArticleTemplete;
