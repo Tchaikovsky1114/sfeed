@@ -39,7 +39,7 @@ const Header = () => {
         ))}
       </nav>
 
-      <div className="flex basis-0 shrink min-w-fit 2xs:flex-row xs:flex-row md:flex-col xs:gap-4 md:gap-0 items-center justify-center xs:absolute md:static xs:top-12 md:top-4 xs:left-1/2 md:ml-16 xs:-translate-x-1/2 md:transfrom-none">
+      <div className="flex basis-0 shrink min-w-fit 2xs:flex-row xs:flex-row md:flex-col xs:gap-4 md:gap-0 items-center justify-center xs:absolute md:static xs:top-16 md:top-4 xs:left-1/2 md:ml-16 xs:-translate-x-1/2 md:transfrom-none">
         <div className="flex w-full justify-center items-center xs:gap-4 md:gap-2 md:py-2 sm:mt-2">
           <Link to="/" class="xs:text-2xl md:text-4xl md:mb-0">
             SFEED 

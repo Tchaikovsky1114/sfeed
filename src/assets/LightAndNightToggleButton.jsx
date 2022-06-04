@@ -13,8 +13,8 @@ const LightAndNightToggleButton = () => {
   return (
     <>
       <DarkModeSwitch
-        className={`rounded-full duration-300 ring-2 mb-2 ${
-          isDark ? 'bg-slate-800' : 'bg-red-400'
+        className={`rounded-full duration-300 ring-2 p-1 mb-2 ${
+          isDark ? 'bg-slate-800 ring-blue-400' : 'bg-red-400 ring-red-700'
         }
        
         `}
