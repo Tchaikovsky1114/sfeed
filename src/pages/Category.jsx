@@ -3,6 +3,8 @@ import { useEffect } from 'react';
 import useHttp from '../hooks/useHttp';
 import { getHeadlineNews } from '../lib/api';
 import {useParams} from 'react-router-dom'
+import ArticleFrame from '../layouts/ArticleFrame';
+import CategoryTemplete from '../components/category/CategoryTemplete';
 const Category = () => {
   const {sendRequest,status,data:categoriesNews,error} = useHttp(getHeadlineNews)
   const {categoryId,categories} = useParams()
@@ -28,11 +30,7 @@ const Category = () => {
   const categoryNews = getNews(categoryId)
   
   console.log(categoryNews)
-  return (
-    <div>
-      카테고리
-    </div>
-  );
+  return <CategoryTemplete article={categoryNews} />
 };
 
 export default Category;

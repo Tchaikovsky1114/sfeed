@@ -1,8 +1,8 @@
 import React from 'react';
 import ArticleFrame from '../../layouts/ArticleFrame';
 
-const ArticleDetailsView = ({article}) => {
+const CategoryDetailView = ({article}) => {
   return <ArticleFrame article={article} />
 };
 
-export default ArticleDetailsView;
+export default CategoryDetailView;

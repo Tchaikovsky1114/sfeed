@@ -1,8 +1,15 @@
+import ArticleTempleteFrame from '../../layouts/ArticleTempleteFrame';
+import ArticleDetails from './ArticleDetails';
 
-import ArticleTempleteView from './ArticleTempleteView';
-const ArticleTemplete = ({article}) => {
 
-  return <ArticleTempleteView article={article} />
+
+const ArticleTemplete = ({ article }) => {
+
+  return (
+    <ArticleTempleteFrame article={article}>
+      <ArticleDetails article={article} />
+    </ArticleTempleteFrame>
+  );
 };
 
 export default ArticleTemplete;

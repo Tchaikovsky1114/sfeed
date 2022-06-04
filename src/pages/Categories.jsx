@@ -37,7 +37,7 @@ const Categories = () => {
   
 
   
-  return <CategoriesTemplete  categories={categories} categoryNews={categoryNews} />
+  return <CategoriesTemplete categories={categories} categoryNews={categoryNews} />
 };
 
 export default Categories;
