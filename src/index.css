@@ -14,6 +14,9 @@
   body {
     @apply bg-primary
   }
+  button[aria-current='page']{
+    @apply bg-yellow-300
+  }
 }
 
 html > body{
@@ -21,8 +24,8 @@ html > body{
 }
 
 .light {
-  --color-bg-primary: #ffc;
-  --color-bg-secondary: #eff;
+  --color-bg-primary: #fff;
+  --color-bg-secondary: #faa;
   --color-text-primary: #2d3748;
   --color-text-secondary: #4a5599;
   --color-text-accent: #2b6cb0;

@@ -13,15 +13,15 @@ const Categories = () => {
   const {sendRequest,status,data:categoryNews} = useHttp(getHeadlineNews);
   const {pathname} = useLocation()
   const {categories} = useParams();
-
+  
   useEffect(()=>{
    sendRequest(categories,currentPageNumber);
   },[sendRequest,categories,currentPageNumber])
-
+  
   useEffect(()=>{
-    getNewsOnPage(1)
+    getNewsOnPage(categories,1)
   },[pathname])
-
+  
 
 
   if(status === 'pending'){
@@ -31,8 +31,6 @@ const Categories = () => {
   if(categoryNews === null ){
     return <div>something wrong!</div>
   }
-  
-
   
   return <CategoriesTemplete categories={categories} categoryNews={categoryNews} />
 };

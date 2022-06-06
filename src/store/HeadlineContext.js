@@ -13,13 +13,12 @@ export const HeadlineContext = createContext({
   
 })
  
-const HeadlineProvider = ({children}) => { 
-  const {sendRequest,status,data:headlineNews,error} = useHttp(getHeadlineNews)
-  const params = useParams()
 
-  console.log("context params" )
-  console.log(params);
-  
+
+
+const HeadlineProvider = ({children}) => { 
+  const {sendRequest,status,data:headlineNews,error} = useHttp(getHeadlineNews);
+
   useEffect(()=>{
   sendRequest()
   },[sendRequest])
@@ -29,7 +28,7 @@ const HeadlineProvider = ({children}) => {
     return <div class="text-xl absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">Now Loading.........</div>
   }
   if(headlineNews === null){
-    return <div class="text-red-400">SomeThing Wrong!</div>
+    return <div class="text-red-400">{error}</div>
   }
   
   const getNews = (dynamicSegment) => {

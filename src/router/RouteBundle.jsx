@@ -19,7 +19,10 @@ const RouteBundle = () => {
       <UtilProvider>
       <Categories/>
       </UtilProvider>} />
-      <Route path =":categories/:categoryId" element={<Category />}></Route>
+      <Route path =":categories/:categoryId" element={
+      <UtilProvider>
+      <Category />
+      </UtilProvider>}></Route>
     </Routes>
   );
 };

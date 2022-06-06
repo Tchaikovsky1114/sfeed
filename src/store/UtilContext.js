@@ -1,6 +1,8 @@
 import { useCallback } from "react";
 import { useState } from "react";
 import { createContext } from "react";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
+import useScroll from "../hooks/useScroll";
 
 export const UtilContext = createContext({
   currentPageNumber: 0,
@@ -12,15 +14,33 @@ export const UtilContext = createContext({
 
 const UtilProvider = ({children}) => {
   const [currentPageNumber,setCurrentPageNumber] = useState(1)
+  const scrollYValue = useScroll(2000)
+  const navigate = useNavigate();
 
-  const getNewsOnPage = useCallback((number) =>{
+  const goToPage = (categories,number) => {
+    navigate(`/${categories}?page=${number}`)
+  }
+
+  const getScrollYValue = () => {
+    window.scrollTo(0,scrollYValue)
+  }
+
+  const getNewsOnPage = useCallback((categories,number) =>{
 
     setCurrentPageNumber(number);
-  },[currentPageNumber])
+    goToPage(categories,number)
+    
+  },[currentPageNumber,goToPage,scrollYValue])
+  
+
   const increasePageNumber = useCallback(() => {
-    setCurrentPageNumber(prev => prev + 1);
+
+    setCurrentPageNumber(prev => prev + 1); 
   },[currentPageNumber])
+
+
   const decreasePageNumber = useCallback(() => {
+
     setCurrentPageNumber(prev => prev - 1);
   },[currentPageNumber])
  

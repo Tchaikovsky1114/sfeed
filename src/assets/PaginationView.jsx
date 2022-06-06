@@ -1,4 +1,5 @@
 import React from 'react';
+import { useEffect } from 'react';
 import uuid from 'react-uuid';
 
 const PaginationView = ({
@@ -9,7 +10,10 @@ const PaginationView = ({
   page,
   increasePageNumber,
   decreasePageNumber,
+  currentPageNumber,
+  categories
 }) => {
+
   return (
     <div
       className={` bg-secondary border w-fit border-slate-700 px-4 py-3 flex items-center justify-between rounded-md sm:px-6 absolute left-1/2 -translate-x-1/2 `}
@@ -26,7 +30,7 @@ const PaginationView = ({
         <button
           href="#"
           className="ml-3 relative inline-flex items-center px-5 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50"
-          onClick={decreasePageNumber}
+          onClick={increasePageNumber}
         >
           Next
         </button>
@@ -46,8 +50,9 @@ const PaginationView = ({
           >
             <button
               href="#"
-              className="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
+              className="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:bg-slate-900 disabled:text-gray-400"
               onClick={decreasePageNumber}
+              disabled={currentPageNumber <= 1}
             >
               <span className="sr-only">Previous</span>
               <div className="h-5 w-5 font-bold" aria-hidden="true">
@@ -60,9 +65,9 @@ const PaginationView = ({
               .map((_, i) => (
                 <button
                   key={uuid()}
-                  aria-current={page}
-                  className="z-10 bg-primary border-slate-300 text-primary relative inline-flex items-center px-4 py-2 border text-sm font-medium"
-                  onClick={() => getNewsOnPage(i + 1)}
+                  aria-current={currentPageNumber === i + 1 && "page"}
+                  className="z-10 bg-primary border-slate-300 text-primary relative inline-flex items-center px-4 py-2 border text-sm font-medium curren"
+                  onClick={() =>getNewsOnPage(categories,i + 1)}
                 >
                   {i + 1}
                 </button>
@@ -70,8 +75,9 @@ const PaginationView = ({
 
             <button
               href="#"
-              className="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
+              className={`relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:bg-slate-900 disabled:text-gray-400`}
               onClick={increasePageNumber}
+              disabled={pageNumber === currentPageNumber}
             >
               <span className="sr-only">Next</span>
               <div className="h-5 w-5 font-bold" aria-hidden="true">
