@@ -1,7 +1,5 @@
-import { useEffect } from 'react';
 import { useContext } from 'react';
 import { useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
 import { UtilContext } from '../store/UtilContext';
 import PaginationView from './PaginationView';
 export default function Pagination({ totalResults, articles, categories }) {

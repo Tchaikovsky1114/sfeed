@@ -1,8 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const useScroll = (delay) => {
   const [scrollY,setScrollY] = useState()
-  const getScrollYValue = useRef();
+  const getScrollYValue = useRef(null);
 
  const storeScrollYValue = () => {
    setScrollY(window.scrollY)

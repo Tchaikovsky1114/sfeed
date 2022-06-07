@@ -28,7 +28,7 @@ const HeadlineProvider = ({children}) => {
     return <div class="text-xl absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">Now Loading.........</div>
   }
   if(headlineNews === null){
-    return <div class="text-red-400">{error}</div>
+    return <div class="text-red-400">something wrong!</div>
   }
   
   const getNews = (dynamicSegment) => {

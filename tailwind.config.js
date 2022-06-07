@@ -24,7 +24,9 @@ module.exports = {
         '512': '512px',
         '256': '256px'
       },
-
+      keyframes:{
+        
+      }
     },
   },
   plugins: [],

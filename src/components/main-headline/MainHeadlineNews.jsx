@@ -6,8 +6,8 @@ import HeadlineNewsView from './MainHeadlineNewsView';
 const HeadlineNews = () => {
   const headlineCtx = useContext(HeadlineContext);
   const { headlineNews } = headlineCtx;
-
-  return <HeadlineNewsView articles={headlineNews.articles} />;
+  const {articles} = headlineNews
+  return <HeadlineNewsView articles={articles} />;
 };
 
 export default HeadlineNews;
